@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.canonal.calorietracker"
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
@@ -10,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.CalorieTracker"
-        tools:targetApi="33">
+        tools:targetApi="31">
         <activity
             android:name=".MainActivity"
             android:exported="true"
