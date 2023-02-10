@@ -6,7 +6,6 @@ plugins {
 }
 
 android {
-    namespace = "com.canonal.calorietracker"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
@@ -62,6 +61,12 @@ dependencies {
     kapt(DaggerHilt.hiltCompiler)
 
     implementation(project(Modules.core))
+    implementation(project(Modules.coreUi))
+    implementation(project(Modules.onboardingDomain))
+    implementation(project(Modules.onboardingPresentation))
+    implementation(project(Modules.trackerDomain))
+    implementation(project(Modules.trackerData))
+    implementation(project(Modules.trackerPresentation))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
