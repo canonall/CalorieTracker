@@ -9,11 +9,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.canonal.core.R
+import com.canonal.core.navigation.Route
+import com.canonal.core.util.UiEvent
 import com.canonal.core_ui.spacing
 import com.canonal.onboarding_presentation.components.ActionButton
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(
+    onNavigate: (UiEvent.Navigate) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -29,7 +33,7 @@ fun WelcomeScreen() {
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.spaceMedium))
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { },
+            onClick = { onNavigate(UiEvent.Navigate(Route.AGE)) },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
