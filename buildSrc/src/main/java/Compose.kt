@@ -7,7 +7,7 @@ object Compose {
     const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
     const val compiler = "androidx.compose.compiler:compiler:$composeCompilerVersion"
 
-    private const val navigationVersion = "2.4.0-beta02"
+    private const val navigationVersion = "2.5.1"
     const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
 
     private const val hiltNavigationComposeVersion = "1.0.0-beta01"
