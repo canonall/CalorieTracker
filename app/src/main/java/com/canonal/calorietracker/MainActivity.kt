@@ -18,6 +18,8 @@ import com.canonal.calorietracker.ui.theme.CalorieTrackerTheme
 import com.canonal.core.navigation.Route
 import com.canonal.onboarding_presentation.age.AgeScreen
 import com.canonal.onboarding_presentation.gender.GenderScreen
+import com.canonal.onboarding_presentation.height.HeightScreen
+import com.canonal.onboarding_presentation.weight.WeightScreen
 import com.canonal.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,20 +48,26 @@ class MainActivity : ComponentActivity() {
                             composable(route = Route.WELCOME) {
                                 WelcomeScreen(onNavigate = navController::navigate)
                             }
+                            composable(route = Route.GENDER) {
+                                GenderScreen(onNavigate = navController::navigate)
+                            }
                             composable(route = Route.AGE) {
                                 AgeScreen(
                                     scaffoldState = scaffoldState,
                                     onNavigate = navController::navigate
                                 )
                             }
-                            composable(route = Route.GENDER) {
-                                GenderScreen(onNavigate = navController::navigate)
-                            }
                             composable(route = Route.HEIGHT) {
-
+                                HeightScreen(
+                                    scaffoldState = scaffoldState,
+                                    onNavigate = navController::navigate
+                                )
                             }
                             composable(route = Route.WEIGHT) {
-
+                                WeightScreen(
+                                    scaffoldState = scaffoldState,
+                                    onNavigate = navController::navigate
+                                )
                             }
                             composable(route = Route.NUTRIENT_GOAL) {
 
