@@ -46,6 +46,14 @@ class AgeViewModel @Inject constructor(
                 )
                 return@launch
             }
+            if (ageAsInt > 100) {
+                _uiEvent.send(
+                    UiEvent.ShowSnackbar(
+                        message = UiText.StringResource(resId = R.string.error_age_cant_be_more_than_100)
+                    )
+                )
+                return@launch
+            }
             preferences.saveAge(age = ageAsInt)
             _uiEvent.send(UiEvent.Navigate(Route.HEIGHT))
         }
