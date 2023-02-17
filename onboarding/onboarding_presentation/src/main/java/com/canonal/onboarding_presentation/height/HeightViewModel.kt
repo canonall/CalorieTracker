@@ -9,7 +9,7 @@ import com.canonal.core.data.preferences.DefaultPreferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.core.util.UiEvent
 import com.canonal.core.R
-import com.canonal.core.domain.use_case.InitialHeightUseCase
+import com.canonal.onboarding_domain.use_case.height.InitialHeightUseCase
 import com.canonal.core.navigation.Route
 import com.canonal.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel

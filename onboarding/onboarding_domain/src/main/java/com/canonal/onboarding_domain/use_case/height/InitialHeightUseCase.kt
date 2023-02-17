@@ -1,4 +1,4 @@
-package com.canonal.core.domain.use_case
+package com.canonal.onboarding_domain.use_case.height
 
 import com.canonal.core.domain.model.Gender
 
