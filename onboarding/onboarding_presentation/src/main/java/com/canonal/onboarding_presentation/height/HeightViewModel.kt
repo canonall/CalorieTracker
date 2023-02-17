@@ -9,6 +9,7 @@ import com.canonal.core.data.preferences.DefaultPreferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.core.util.UiEvent
 import com.canonal.core.R
+import com.canonal.core.domain.use_case.InitialHeightUseCase
 import com.canonal.core.navigation.Route
 import com.canonal.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,9 +22,10 @@ import javax.inject.Inject
 @HiltViewModel
 class HeightViewModel @Inject constructor(
     private val preferences: DefaultPreferences,
-    private val filterOutDigitsUseCase: FilterOutDigitsUseCase
+    private val filterOutDigitsUseCase: FilterOutDigitsUseCase,
+    private val initialHeightUseCase: InitialHeightUseCase
 ) : ViewModel() {
-    var height by mutableStateOf("170")
+    var height by mutableStateOf(getInitialHeight())
         private set
 
     private val _uiEvent = Channel<UiEvent>()
@@ -49,5 +51,9 @@ class HeightViewModel @Inject constructor(
             preferences.saveHeight(height = heightAsInt)
             _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
         }
+    }
+
+    private fun getInitialHeight(): String {
+        return initialHeightUseCase.invoke(preferences.loadUserInfo().gender)
     }
 }
