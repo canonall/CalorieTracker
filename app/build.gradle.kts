@@ -60,6 +60,8 @@ dependencies {
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
+    implementation(Timber.timber)
+
     implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
     implementation(project(Modules.onboardingDomain))

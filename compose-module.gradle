@@ -52,6 +52,8 @@ dependencies {
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
 
+    implementation Timber.timber
+
     testImplementation Testing.junit4 
     testImplementation Testing.junitAndroidExt 
     testImplementation Testing.truth 
