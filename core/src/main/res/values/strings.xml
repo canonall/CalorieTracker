@@ -12,7 +12,7 @@
     <string name="kg">kg</string>
     <string name="cm">cm</string>
     <string name="error_age_cant_be_empty">The age can\'t be empty</string>
-    <string name="error_age_cant_be_more_than_100">The age can\'t more than 100</string>
+    <string name="error_age_limit">The age must be between 8 and 100</string>
     <string name="error_height_cant_be_empty">The height can\'t be empty</string>
     <string name="error_weight_cant_be_empty">The weight can\'t be empty</string>
     <string name="kcal">kcal</string>

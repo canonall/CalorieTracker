@@ -1,5 +1,6 @@
 package com.canonal.onboarding_domain.di
 
+import com.canonal.onboarding_domain.use_case.age.AgeLimitUseCase
 import com.canonal.onboarding_domain.use_case.height.InitialHeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.FormatWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.InitialWeightUseCase
@@ -29,5 +30,11 @@ object OnboardingDomainModule {
     @ViewModelScoped
     fun provideFormatWeightUseCase(): FormatWeightUseCase {
         return FormatWeightUseCase()
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideAgeLimitUseCase(): AgeLimitUseCase {
+        return AgeLimitUseCase()
     }
 }

@@ -11,6 +11,7 @@ import com.canonal.core.util.UiEvent
 import com.canonal.core.R
 import com.canonal.core.navigation.Route
 import com.canonal.core.util.UiText
+import com.canonal.onboarding_domain.use_case.age.AgeLimitUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -21,7 +22,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AgeViewModel @Inject constructor(
     private val preferences: DefaultPreferences,
-    private val filterOutDigitsUseCase: FilterOutDigitsUseCase
+    private val filterOutDigitsUseCase: FilterOutDigitsUseCase,
+    private val ageLimitUseCase: AgeLimitUseCase
 ) : ViewModel() {
     var age by mutableStateOf("20")
         private set
@@ -46,10 +48,10 @@ class AgeViewModel @Inject constructor(
                 )
                 return@launch
             }
-            if (ageAsInt > 100) {
+            if (ageLimitUseCase.invoke(ageAsInt)) {
                 _uiEvent.send(
                     UiEvent.ShowSnackbar(
-                        message = UiText.StringResource(resId = R.string.error_age_cant_be_more_than_100)
+                        message = UiText.StringResource(resId = R.string.error_age_limit)
                     )
                 )
                 return@launch
