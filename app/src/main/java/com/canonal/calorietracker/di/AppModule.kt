@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import com.canonal.core.data.preferences.DefaultPreferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.core.domain.use_case.InitialHeightUseCase
+import com.canonal.core.domain.use_case.InitialWeightUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,5 +41,11 @@ object AppModule {
     @Singleton
     fun provideInitialHeightUseCase(): InitialHeightUseCase {
         return InitialHeightUseCase()
+    }
+
+    @Provides
+    @Singleton
+    fun provideInitialWeightUseCase(): InitialWeightUseCase {
+        return InitialWeightUseCase()
     }
 }

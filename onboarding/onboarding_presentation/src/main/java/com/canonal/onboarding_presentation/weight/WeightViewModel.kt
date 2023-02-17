@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.canonal.core.data.preferences.DefaultPreferences
 import com.canonal.core.util.UiEvent
 import com.canonal.core.R
+import com.canonal.core.domain.use_case.InitialWeightUseCase
 import com.canonal.core.navigation.Route
 import com.canonal.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,9 +20,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WeightViewModel @Inject constructor(
-    private val preferences: DefaultPreferences
+    private val preferences: DefaultPreferences,
+    private val initialWeightUseCase: InitialWeightUseCase
 ) : ViewModel() {
-    var weight by mutableStateOf("80.0")
+    var weight by mutableStateOf(getInitialWeight())
         private set
 
     private val _uiEvent = Channel<UiEvent>()
@@ -47,5 +49,9 @@ class WeightViewModel @Inject constructor(
             preferences.saveWeight(weight = weightAsFloat)
             _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY))
         }
+    }
+
+    private fun getInitialWeight(): String {
+        return initialWeightUseCase.invoke(preferences.loadUserInfo().gender)
     }
 }
