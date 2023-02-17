@@ -15,6 +15,7 @@
     <string name="error_age_limit">The age must be between 8 and 100</string>
     <string name="error_height_cant_be_empty">The height can\'t be empty</string>
     <string name="error_weight_cant_be_empty">The weight can\'t be empty</string>
+    <string name="error_weight_limit">The weight must be between 20 and 650 kg</string>
     <string name="kcal">kcal</string>
     <string name="carbs">Carbs</string>
     <string name="protein">Protein</string>

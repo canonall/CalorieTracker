@@ -12,6 +12,7 @@ import com.canonal.onboarding_domain.use_case.weight.FormatWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.InitialWeightUseCase
 import com.canonal.core.navigation.Route
 import com.canonal.core.util.UiText
+import com.canonal.onboarding_domain.use_case.weight.WeightLimitUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -23,7 +24,8 @@ import javax.inject.Inject
 class WeightViewModel @Inject constructor(
     private val preferences: DefaultPreferences,
     private val initialWeightUseCase: InitialWeightUseCase,
-    private val formatWeightUseCase: FormatWeightUseCase
+    private val formatWeightUseCase: FormatWeightUseCase,
+    private val weightLimitUseCase: WeightLimitUseCase
 ) : ViewModel() {
     var weight by mutableStateOf(getInitialWeight())
         private set
@@ -42,6 +44,14 @@ class WeightViewModel @Inject constructor(
                 _uiEvent.send(
                     UiEvent.ShowSnackbar(
                         message = UiText.StringResource(resId = R.string.error_weight_cant_be_empty)
+                    )
+                )
+                return@launch
+            }
+            if (weightLimitUseCase.invoke(weightAsFloat)) {
+                _uiEvent.send(
+                    UiEvent.ShowSnackbar(
+                        message = UiText.StringResource(resId = R.string.error_weight_limit)
                     )
                 )
                 return@launch
