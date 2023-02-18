@@ -2,6 +2,7 @@ package com.canonal.onboarding_domain.di
 
 import com.canonal.onboarding_domain.use_case.age.AgeLimitUseCase
 import com.canonal.onboarding_domain.use_case.height.InitialHeightUseCase
+import com.canonal.onboarding_domain.use_case.nutrient_goal.ValidateNutrientsUseCase
 import com.canonal.onboarding_domain.use_case.weight.FormatWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.InitialWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.WeightLimitUseCase
@@ -43,5 +44,11 @@ object OnboardingDomainModule {
     @ViewModelScoped
     fun provideWeightLimitUseCase(): WeightLimitUseCase {
         return WeightLimitUseCase()
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideValidateNutrientsUseCase(): ValidateNutrientsUseCase {
+        return ValidateNutrientsUseCase()
     }
 }
