@@ -48,7 +48,7 @@ class AgeViewModel @Inject constructor(
                 )
                 return@launch
             }
-            if (ageLimitUseCase.invoke(ageAsInt)) {
+            if (ageLimitUseCase(age = ageAsInt)) {
                 _uiEvent.send(
                     UiEvent.ShowSnackbar(
                         message = UiText.StringResource(resId = R.string.error_age_limit)

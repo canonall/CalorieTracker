@@ -35,7 +35,7 @@ class WeightViewModel @Inject constructor(
         get() = _uiEvent.receiveAsFlow()
 
     fun onWeightEnter(newValue: String) {
-        this.weight = formatWeightUseCase.invoke(displayedText = this.weight, newValue = newValue)
+        this.weight = formatWeightUseCase(displayedText = this.weight, newValue = newValue)
     }
 
     fun onNextClick() {
@@ -48,7 +48,7 @@ class WeightViewModel @Inject constructor(
                 )
                 return@launch
             }
-            if (weightLimitUseCase.invoke(weightAsFloat)) {
+            if (weightLimitUseCase(weight = weightAsFloat)) {
                 _uiEvent.send(
                     UiEvent.ShowSnackbar(
                         message = UiText.StringResource(resId = R.string.error_weight_limit)
@@ -62,6 +62,6 @@ class WeightViewModel @Inject constructor(
     }
 
     private fun getInitialWeight(): String {
-        return initialWeightUseCase.invoke(preferences.loadUserInfo().gender)
+        return initialWeightUseCase(gender = preferences.loadUserInfo().gender)
     }
 }

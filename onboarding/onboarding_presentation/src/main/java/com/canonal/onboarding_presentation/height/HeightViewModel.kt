@@ -54,6 +54,6 @@ class HeightViewModel @Inject constructor(
     }
 
     private fun getInitialHeight(): String {
-        return initialHeightUseCase.invoke(preferences.loadUserInfo().gender)
+        return initialHeightUseCase(gender = preferences.loadUserInfo().gender)
     }
 }
