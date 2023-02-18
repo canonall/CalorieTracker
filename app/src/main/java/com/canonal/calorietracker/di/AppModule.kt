@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.canonal.core.data.preferences.DefaultPreferences
+import com.canonal.core.domain.preferences.Preferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import dagger.Module
 import dagger.Provides
@@ -25,7 +26,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providePreferences(sharedPreferences: SharedPreferences): DefaultPreferences {
+    fun providePreferences(sharedPreferences: SharedPreferences): Preferences {
         return DefaultPreferences(sharedPref = sharedPreferences)
     }
 

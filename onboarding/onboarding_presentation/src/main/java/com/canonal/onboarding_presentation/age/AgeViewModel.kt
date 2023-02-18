@@ -5,11 +5,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.canonal.core.data.preferences.DefaultPreferences
-import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
-import com.canonal.core.util.UiEvent
 import com.canonal.core.R
+import com.canonal.core.domain.preferences.Preferences
+import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.core.navigation.Route
+import com.canonal.core.util.UiEvent
 import com.canonal.core.util.UiText
 import com.canonal.onboarding_domain.use_case.age.AgeLimitUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +21,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AgeViewModel @Inject constructor(
-    private val preferences: DefaultPreferences,
+    private val preferences: Preferences,
     private val filterOutDigitsUseCase: FilterOutDigitsUseCase,
     private val ageLimitUseCase: AgeLimitUseCase
 ) : ViewModel() {

@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.canonal.core.data.preferences.DefaultPreferences
 import com.canonal.core.domain.model.Gender
+import com.canonal.core.domain.preferences.Preferences
 import com.canonal.core.navigation.Route
 import com.canonal.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GenderViewModel @Inject constructor(
-    private val preferences: DefaultPreferences
+    private val preferences: Preferences
 ) : ViewModel() {
 
     var selectedGender by mutableStateOf<Gender>(Gender.Male)
