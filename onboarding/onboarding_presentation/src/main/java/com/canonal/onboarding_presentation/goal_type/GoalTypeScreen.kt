@@ -44,7 +44,7 @@ fun GoalTypeScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.lose_keep_or_gain_weight),
-                style = MaterialTheme.typography.h4
+                style = MaterialTheme.typography.h5
             )
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.spaceMedium))
             Row {
