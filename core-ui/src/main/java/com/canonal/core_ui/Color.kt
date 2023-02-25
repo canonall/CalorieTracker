@@ -1,4 +1,4 @@
-package com.canonal.calorietracker.ui.theme
+package com.canonal.core_ui
 
 import androidx.compose.ui.graphics.Color
 
