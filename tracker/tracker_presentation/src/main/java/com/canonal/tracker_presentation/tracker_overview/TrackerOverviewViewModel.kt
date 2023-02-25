@@ -29,7 +29,7 @@ class TrackerOverviewViewModel @Inject constructor(
         preferences.saveShouldShowOnboarding(shouldShowOnboarding = false)
     }
 
-    var uiState by mutableStateOf(TrackerOverviewUiState())
+    var state by mutableStateOf(TrackerOverviewUiState())
         private set
 
     private val _uiEvent = Channel<UiEvent>()
@@ -46,9 +46,9 @@ class TrackerOverviewViewModel @Inject constructor(
                         UiEvent.Navigate(
                             route = Route.SEARCH
                                     + "/${trackerOverviewEvent.meal.name}"
-                                    + "/${uiState.date.dayOfMonth}"
-                                    + "/${uiState.date.monthValue}"
-                                    + "/${uiState.date.year}"
+                                    + "/${state.date.dayOfMonth}"
+                                    + "/${state.date.monthValue}"
+                                    + "/${state.date.year}"
                         )
                     )
                 }
@@ -60,17 +60,17 @@ class TrackerOverviewViewModel @Inject constructor(
                 }
             }
             TrackerOverviewEvent.OnNextDayClick -> {
-                uiState = uiState.copy(date = uiState.date.plusDays(1))
+                state = state.copy(date = state.date.plusDays(1))
                 refreshFoods()
             }
             TrackerOverviewEvent.OnPreviousDayClick -> {
-                uiState = uiState.copy(date = uiState.date.minusDays(1))
+                state = state.copy(date = state.date.minusDays(1))
                 refreshFoods()
 
             }
             is TrackerOverviewEvent.OnToggleMealClick -> {
-                uiState = uiState.copy(
-                    meals = uiState.meals.map { meal ->
+                state = state.copy(
+                    meals = state.meals.map { meal ->
                         if (meal.name == trackerOverviewEvent.meal.name) {
                             meal.copy(isExpanded = !meal.isExpanded)
                         } else meal
@@ -83,11 +83,11 @@ class TrackerOverviewViewModel @Inject constructor(
     private fun refreshFoods() {
         getFoodsForDateJob?.cancel()
         getFoodsForDateJob = trackerUseCases
-            .getFoodsForDateUseCase(uiState.date)
+            .getFoodsForDateUseCase(state.date)
             .onEach { trackedFoodList ->
                 val nutrientsResult =
                     trackerUseCases.calculateMealNutrientsUseCase(trackedFoodList = trackedFoodList)
-                uiState = uiState.copy(
+                state = state.copy(
                     totalCarbs = nutrientsResult.totalCarbs,
                     totalProtein = nutrientsResult.totalProtein,
                     totalFat = nutrientsResult.totalFat,
@@ -97,7 +97,7 @@ class TrackerOverviewViewModel @Inject constructor(
                     fatGoal = nutrientsResult.fatGoal,
                     caloriesGoal = nutrientsResult.caloriesGoal,
                     trackedFoodList = trackedFoodList,
-                    meals = uiState.meals.map { meal ->
+                    meals = state.meals.map { meal ->
                         val nutrientsForMeal = nutrientsResult.mealNutrientsMap[meal.mealType]
                             ?: return@map meal.copy(
                                 carbs = 0,
