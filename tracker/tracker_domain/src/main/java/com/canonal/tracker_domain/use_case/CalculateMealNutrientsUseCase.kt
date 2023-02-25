@@ -10,7 +10,7 @@ import com.canonal.tracker_domain.model.TrackedFood
 import kotlin.math.roundToInt
 
 class CalculateMealNutrientsUseCase(private val preferences: Preferences) {
-    operator fun invoke(trackedFoodList: List<TrackedFood>): MealNutrientsResult {
+    operator fun invoke(trackedFoodList: List<TrackedFood>): NutrientsResult {
         val allNutrients = trackedFoodList
             .groupBy { trackedFood -> trackedFood.mealType }
             .mapValues { entry ->
@@ -47,7 +47,7 @@ class CalculateMealNutrientsUseCase(private val preferences: Preferences) {
         val proteinGoal = (caloriesGoal * userInfo.proteinRatio / 4f).roundToInt()
         val fatGoal = (caloriesGoal * userInfo.fatRatio / 9f).roundToInt()
 
-        return MealNutrientsResult(
+        return NutrientsResult(
             carbsGoal = carbsGoal,
             proteinGoal = proteinGoal,
             fatGoal = fatGoal,
@@ -68,7 +68,7 @@ class CalculateMealNutrientsUseCase(private val preferences: Preferences) {
         val mealType: MealType
     )
 
-    data class MealNutrientsResult(
+    data class NutrientsResult(
         val carbsGoal: Int,
         val proteinGoal: Int,
         val fatGoal: Int,
