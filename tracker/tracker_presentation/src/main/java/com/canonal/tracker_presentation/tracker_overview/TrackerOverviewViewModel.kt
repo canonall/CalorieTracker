@@ -25,10 +25,6 @@ class TrackerOverviewViewModel @Inject constructor(
     private val trackerUseCases: TrackerUseCases
 ) : ViewModel() {
 
-    init {
-        preferences.saveShouldShowOnboarding(shouldShowOnboarding = false)
-    }
-
     var state by mutableStateOf(TrackerOverviewUiState())
         private set
 
@@ -37,6 +33,10 @@ class TrackerOverviewViewModel @Inject constructor(
         get() = _uiEvent.receiveAsFlow()
 
     private var getFoodsForDateJob: Job? = null
+
+    init {
+        preferences.saveShouldShowOnboarding(shouldShowOnboarding = false)
+    }
 
     fun onEvent(trackerOverviewEvent: TrackerOverviewEvent) {
         when (trackerOverviewEvent) {
