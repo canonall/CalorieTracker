@@ -1,4 +1,4 @@
-package com.canonal.tracker_presentation.components
+package com.canonal.tracker_presentation.tracker_overview.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
