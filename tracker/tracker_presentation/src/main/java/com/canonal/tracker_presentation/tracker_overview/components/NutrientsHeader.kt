@@ -18,7 +18,6 @@ import com.canonal.core_ui.CarbColor
 import com.canonal.core_ui.FatColor
 import com.canonal.core_ui.ProteinColor
 import com.canonal.core_ui.spacing
-import com.canonal.tracker_presentation.components.UnitDisplay
 import com.canonal.tracker_presentation.tracker_overview.TrackerOverviewUiState
 
 @Composable
