@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.canonal.calorietracker.navigation.navigate
 import com.canonal.calorietracker.ui.theme.CalorieTrackerTheme
+import com.canonal.core.domain.preferences.Preferences
 import com.canonal.core.navigation.Route
 import com.canonal.onboarding_presentation.activity_level.ActivityLevelScreen
 import com.canonal.onboarding_presentation.age.AgeScreen
@@ -29,11 +30,19 @@ import com.canonal.onboarding_presentation.welcome.WelcomeScreen
 import com.canonal.tracker_presentation.search.SearchScreen
 import com.canonal.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var preferences: Preferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val shouldShowOnboarding = preferences.loadShouldShowOnboarding()
+
         setContent {
             CalorieTrackerTheme {
                 // A surface container using the 'background' color from the theme
@@ -49,7 +58,8 @@ class MainActivity : ComponentActivity() {
                     ) { contentPadding ->
                         NavHost(
                             navController = navController,
-                            startDestination = Route.WELCOME,
+                            startDestination = if (shouldShowOnboarding) Route.WELCOME
+                            else Route.TRACKER_OVERVIEW,
                             modifier = Modifier.padding(contentPadding)
                         ) {
                             composable(route = Route.WELCOME) {
