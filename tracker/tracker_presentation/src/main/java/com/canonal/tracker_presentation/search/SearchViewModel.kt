@@ -34,7 +34,7 @@ class SearchViewModel @Inject constructor(
         when (searchEvent) {
             is SearchEvent.OnAmountForTrackableFoodChange -> {
                 state =
-                    state.copy(trackableFoodStateList = state.trackableFoodStateList.map { trackableFoodUiState ->
+                    state.copy(trackableFoodItemList = state.trackableFoodItemList.map { trackableFoodUiState ->
                         if (trackableFoodUiState.trackableFood == searchEvent.trackableFood) {
                             trackableFoodUiState.copy(amount = filterOutDigitsUseCase(text = searchEvent.amount))
                         } else trackableFoodUiState
@@ -51,7 +51,7 @@ class SearchViewModel @Inject constructor(
             }
             is SearchEvent.OnToggleTrackableFood -> {
                 state =
-                    state.copy(trackableFoodStateList = state.trackableFoodStateList.map { trackableFoodUiState ->
+                    state.copy(trackableFoodItemList = state.trackableFoodItemList.map { trackableFoodUiState ->
                         if (trackableFoodUiState.trackableFood == searchEvent.trackableFood) {
                             trackableFoodUiState.copy(isExpanded = !trackableFoodUiState.isExpanded)
                         } else trackableFoodUiState
@@ -68,14 +68,14 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             state = state.copy(
                 isSearching = true,
-                trackableFoodStateList = emptyList()
+                trackableFoodItemList = emptyList()
             )
             trackerUseCases
                 .searchFoodUseCase(query = state.query)
                 .onSuccess { trackableFoodList ->
                     state = state.copy(
-                        trackableFoodStateList = trackableFoodList.map { trackableFood ->
-                            TrackableFoodUiState(trackableFood = trackableFood)
+                        trackableFoodItemList = trackableFoodList.map { trackableFood ->
+                            TrackableFoodItem(trackableFood = trackableFood)
                         },
                         isSearching = false,
                         query = ""
@@ -90,7 +90,7 @@ class SearchViewModel @Inject constructor(
 
     private fun trackFood(searchEvent: SearchEvent.OnTrackFoodClick) {
         viewModelScope.launch {
-            val clickedItemUiState = state.trackableFoodStateList.find { trackableFoodUiState ->
+            val clickedItemUiState = state.trackableFoodItemList.find { trackableFoodUiState ->
                 trackableFoodUiState.trackableFood == searchEvent.trackableFood
             }
             trackerUseCases.trackFoodUseCase(
