@@ -56,6 +56,7 @@ fun HeightScreen(
             UnitTextField(
                 value = viewModel.height,
                 onValueChange = viewModel::onHeightEnter,
+                onDoneClick =  viewModel::onNextClick,
                 unit = stringResource(id = R.string.cm)
             )
         }
