@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.canonal.core.domain.preferences.Preferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
-import com.canonal.core.navigation.Route
 import com.canonal.core.util.UiEvent
 import com.canonal.onboarding_domain.use_case.nutrient_goal.ValidateNutrientsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -37,7 +36,8 @@ class NutrientGoalViewModel @Inject constructor(
                 uiState = uiState.copy(carbsRatio = filterOutDigitsUseCase(nutrientGoalEvent.ratio))
             }
             is NutrientGoalEvent.OnProteinRatioEnter -> {
-                uiState = uiState.copy(proteinRatio = filterOutDigitsUseCase(nutrientGoalEvent.ratio))
+                uiState =
+                    uiState.copy(proteinRatio = filterOutDigitsUseCase(nutrientGoalEvent.ratio))
             }
             is NutrientGoalEvent.OnFatRatioEnter -> {
                 uiState = uiState.copy(fatRatio = filterOutDigitsUseCase(nutrientGoalEvent.ratio))
@@ -54,7 +54,7 @@ class NutrientGoalViewModel @Inject constructor(
                         preferences.saveProteinRatio(ratio = result.proteinRatio)
                         preferences.saveFatRatio(ratio = result.fatRatio)
                         viewModelScope.launch {
-                            _uiEvent.send(UiEvent.Navigate(route = Route.TRACKER_OVERVIEW))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
 

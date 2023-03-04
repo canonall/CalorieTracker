@@ -1,4 +1,4 @@
-package com.canonal.core.navigation
+package com.canonal.calorietracker.navigation
 
 object Route {
     const val WELCOME = "welcome"

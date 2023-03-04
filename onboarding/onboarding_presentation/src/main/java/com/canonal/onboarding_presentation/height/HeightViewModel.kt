@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.canonal.core.R
 import com.canonal.core.domain.preferences.Preferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
-import com.canonal.core.navigation.Route
 import com.canonal.core.util.UiEvent
 import com.canonal.core.util.UiText
 import com.canonal.onboarding_domain.use_case.height.InitialHeightUseCase
@@ -49,7 +48,7 @@ class HeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveHeight(height = heightAsInt)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 
