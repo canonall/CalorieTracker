@@ -20,14 +20,14 @@ import com.canonal.onboarding_presentation.components.UnitTextField
 @Composable
 fun HeightScreen(
     scaffoldState: ScaffoldState,
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: HeightViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { uiEvent ->
             when (uiEvent) {
-                is UiEvent.Navigate -> onNavigate(uiEvent)
+                is UiEvent.Success -> onNextClick()
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = uiEvent.message.asString(context)

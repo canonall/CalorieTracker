@@ -20,13 +20,13 @@ import com.canonal.onboarding_presentation.components.SelectableButton
 
 @Composable
 fun GoalTypeScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: GoalTypeViewModel = hiltViewModel()
 ) {
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { uiEvent ->
             when (uiEvent) {
-                is UiEvent.Navigate -> onNavigate(uiEvent)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }
