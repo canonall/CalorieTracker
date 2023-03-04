@@ -8,6 +8,14 @@ plugins {
 android {
     compileSdk = ProjectConfig.compileSdk
 
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
+
     defaultConfig {
         applicationId = ProjectConfig.appId
         minSdk = ProjectConfig.minSdk
@@ -15,7 +23,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.canonal.calorietracker.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }

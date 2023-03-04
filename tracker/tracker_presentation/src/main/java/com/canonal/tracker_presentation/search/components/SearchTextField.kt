@@ -23,6 +23,8 @@ import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -61,6 +63,9 @@ fun SearchTextField(
                 .padding(end = MaterialTheme.spacing.spaceMedium)
                 .onFocusChanged { focusState ->
                     onFocusChanged(focusState)
+                }
+                .semantics {
+                    contentDescription = "SearchTextField"
                 }
         )
         if (shouldShowHint) {
