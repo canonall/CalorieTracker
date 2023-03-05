@@ -42,9 +42,19 @@ fun NutrientsBar(
 
     Canvas(modifier = modifier) {
         if (calories <= calorieGoal) {
-            val carbsWidth = carbsWidthRatio.value * size.width
-            val proteinWidth = proteinWidthRatio.value * size.width
-            val fatWidth = fatWidthRatio.value * size.width
+
+            var carbsWidth = carbsWidthRatio.value * size.width
+            var proteinWidth = proteinWidthRatio.value * size.width
+            var fatWidth = fatWidthRatio.value * size.width
+            val widthSum = carbsWidth + proteinWidth + fatWidth
+
+            if (widthSum > size.width) {
+                // scale bar widths
+                val resizeFactor = (size.width / widthSum)
+                carbsWidth *= resizeFactor
+                proteinWidth *= resizeFactor
+                fatWidth *= resizeFactor
+            }
 
             // empty bar
             drawRoundRect(
