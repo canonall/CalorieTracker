@@ -10,6 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.canonal.core.R
 import com.canonal.core.util.UiEvent
@@ -57,7 +59,10 @@ fun WeightScreen(
                 value = viewModel.weight,
                 onValueChange = viewModel::onWeightEnter,
                 onDoneClick = viewModel::onNextClick,
-                unit = stringResource(id = R.string.kg)
+                unit = stringResource(id = R.string.kg),
+                modifier = Modifier.semantics {
+                    contentDescription = context.getString(R.string.weight_text_field)
+                }
             )
         }
         ActionButton(
