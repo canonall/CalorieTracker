@@ -1,4 +1,4 @@
-package com.canonal.tracker_presentation.tracker_overview.components
+package com.canonal.tracker_presentation.common_components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme

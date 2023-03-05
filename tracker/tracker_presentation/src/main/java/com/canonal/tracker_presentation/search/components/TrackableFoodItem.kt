@@ -20,7 +20,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
@@ -36,7 +35,8 @@ import coil.compose.rememberImagePainter
 import com.canonal.core.R
 import com.canonal.core_ui.spacing
 import com.canonal.tracker_presentation.search.TrackableFoodItem
-import com.canonal.tracker_presentation.tracker_overview.components.NutrientInfo
+import com.canonal.tracker_presentation.common_components.NutrientInfo
+import com.canonal.tracker_presentation.common_components.foodRow
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -48,12 +48,7 @@ fun TrackableFoodItem(
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier
-        .clip(RoundedCornerShape(5.dp))
-        .padding(MaterialTheme.spacing.spaceExtraSmall)
-        .shadow(
-            elevation = 1.dp,
-            shape = RoundedCornerShape(5.dp)
-        )
+        .foodRow()
         .background(MaterialTheme.colors.surface)
         .clickable { onClick() }
         .padding(end = MaterialTheme.spacing.spaceMedium)

@@ -1,7 +1,6 @@
 package com.canonal.tracker_presentation.tracker_overview.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -25,6 +23,8 @@ import coil.compose.rememberImagePainter
 import com.canonal.core.R
 import com.canonal.core_ui.spacing
 import com.canonal.tracker_domain.model.TrackedFood
+import com.canonal.tracker_presentation.common_components.NutrientInfo
+import com.canonal.tracker_presentation.common_components.foodRow
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -36,13 +36,7 @@ fun TrackedFoodItem(
     val cornerSize = 5.dp
     Row(
         modifier = modifier
-            .clip(RoundedCornerShape(cornerSize))
-            .padding(MaterialTheme.spacing.spaceExtraSmall)
-            .shadow(
-                elevation = 1.dp,
-                shape = RoundedCornerShape(cornerSize)
-            )
-            .background(MaterialTheme.colors.surface)
+            .foodRow()
             .padding(end = MaterialTheme.spacing.spaceMedium)
             .height(100.dp),
         horizontalArrangement = Arrangement.SpaceBetween,

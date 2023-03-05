@@ -21,6 +21,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import com.canonal.core.R
 import com.canonal.core_ui.spacing
+import com.canonal.tracker_presentation.common_components.NutrientInfo
+import com.canonal.tracker_presentation.common_components.UnitDisplay
 import com.canonal.tracker_presentation.tracker_overview.Meal
 
 @Composable
