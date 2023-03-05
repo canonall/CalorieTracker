@@ -49,7 +49,7 @@ class CalculateMealNutrientsUseCaseTest {
                 protein = Random.nextInt(100),
                 fat = Random.nextInt(100),
                 mealType = MealType.fromString(
-                    listOf("breakfast", "lunch", "dinner", "snack").random()
+                    listOf("breakfast", "lunch", "dinner", "snacks").random()
                 ),
                 imageUrl = null,
                 amount = 100,
@@ -87,7 +87,7 @@ class CalculateMealNutrientsUseCaseTest {
                 protein = Random.nextInt(100),
                 fat = Random.nextInt(100),
                 mealType = MealType.fromString(
-                    listOf("breakfast", "lunch", "dinner", "snack").random()
+                    listOf("breakfast", "lunch", "dinner", "snacks").random()
                 ),
                 imageUrl = null,
                 amount = 100,
