@@ -1,4 +1,4 @@
-package com.canonal.calorietracker.repository
+package com.canonal.calorietracker
 
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -6,16 +6,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.canonal.calorietracker.MainActivity
-import com.canonal.core.R
 import com.canonal.calorietracker.navigation.Route
 import com.canonal.calorietracker.ui.theme.CalorieTrackerTheme
+import com.canonal.core.R
 import com.canonal.core.domain.preferences.Preferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.onboarding_domain.use_case.age.AgeLimitUseCase
@@ -170,7 +172,8 @@ class OnBoardingE2E {
         val heightTextField = composeRule.activity.getString(R.string.height_text_field)
         val weightTextField = composeRule.activity.getString(R.string.weight_text_field)
         val carbsRatioTextField = composeRule.activity.getString(R.string.carbs_ratio_text_field)
-        val proteinRatioTextField = composeRule.activity.getString(R.string.protein_ratio_text_field)
+        val proteinRatioTextField =
+            composeRule.activity.getString(R.string.protein_ratio_text_field)
         val fatRatioTextField = composeRule.activity.getString(R.string.fat_ratio_text_field)
 
         next()
@@ -224,7 +227,8 @@ class OnBoardingE2E {
 
         next()
 
-        Truth.assertThat(navController.currentDestination?.route?.equals(Route.NUTRIENT_GOAL)).isTrue()
+        Truth.assertThat(navController.currentDestination?.route?.equals(Route.NUTRIENT_GOAL))
+            .isTrue()
 
         composeRule
             .onNodeWithContentDescription(carbsRatioTextField)
