@@ -61,7 +61,7 @@ class AgeScreenTest {
     }
 
     @Test
-    fun isInvalidAgeErrorDisplayed() {
+    fun isdEmptyAgeErrorDisplayed() {
         val emptyAgeError = composeRule.activity.getString(R.string.error_age_cant_be_empty)
 
         composeRule
@@ -80,7 +80,7 @@ class AgeScreenTest {
     }
 
     @Test
-    fun inavlid() {
+    fun isInvalidAgeErrorDisplayed() {
         val ageLimitError = composeRule.activity.getString(R.string.error_age_limit)
         val invalidAge = "110"
 
