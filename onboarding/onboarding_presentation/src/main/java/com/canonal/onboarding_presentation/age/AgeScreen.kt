@@ -10,6 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.canonal.core.R
 import com.canonal.core.util.UiEvent
@@ -57,7 +59,10 @@ fun AgeScreen(
                 value = viewModel.age,
                 onValueChange = viewModel::onAgeEnter,
                 onDoneClick = viewModel::onNextClick,
-                unit = stringResource(id = R.string.years)
+                unit = stringResource(id = R.string.years),
+                modifier = Modifier.semantics {
+                    contentDescription = context.getString(R.string.age_text_field)
+                }
             )
         }
         ActionButton(

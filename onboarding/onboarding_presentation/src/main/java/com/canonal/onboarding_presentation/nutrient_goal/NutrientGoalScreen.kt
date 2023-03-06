@@ -10,6 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.canonal.core.R
 import com.canonal.core.util.UiEvent
@@ -58,7 +60,10 @@ fun NutrientGoalScreen(
                 onValueChange = { text ->
                     viewModel.onEvent(NutrientGoalEvent.OnCarbsRatioEnter(ratio = text))
                 },
-                unit = stringResource(id = R.string.percent_carbs)
+                unit = stringResource(id = R.string.percent_carbs),
+                modifier = Modifier.semantics {
+                    contentDescription = context.getString(R.string.carbs_ratio_text_field)
+                }
             )
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.spaceMedium))
             UnitTextField(
@@ -66,7 +71,10 @@ fun NutrientGoalScreen(
                 onValueChange = { text ->
                     viewModel.onEvent(NutrientGoalEvent.OnProteinRatioEnter(ratio = text))
                 },
-                unit = stringResource(id = R.string.percent_proteins)
+                unit = stringResource(id = R.string.percent_proteins),
+                modifier = Modifier.semantics {
+                    contentDescription = context.getString(R.string.protein_ratio_text_field)
+                }
             )
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.spaceMedium))
             UnitTextField(
@@ -74,7 +82,10 @@ fun NutrientGoalScreen(
                 onValueChange = { text ->
                     viewModel.onEvent(NutrientGoalEvent.OnFatRatioEnter(ratio = text))
                 },
-                unit = stringResource(id = R.string.percent_fats)
+                unit = stringResource(id = R.string.percent_fats),
+                modifier = Modifier.semantics {
+                    contentDescription = context.getString(R.string.fat_ratio_text_field)
+                }
             )
         }
         ActionButton(

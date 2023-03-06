@@ -23,7 +23,6 @@ import com.canonal.core.domain.model.GoalType
 import com.canonal.core.domain.model.UserInfo
 import com.canonal.core.domain.preferences.Preferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
-import com.canonal.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.canonal.tracker_domain.model.TrackableFood
 import com.canonal.tracker_domain.use_case.*
 import com.canonal.tracker_presentation.search.SearchScreen
@@ -101,14 +100,6 @@ class TrackerOverviewE2E {
                         startDestination = Route.TRACKER_OVERVIEW,
                         modifier = Modifier.padding(contentPadding)
                     ) {
-                        composable(route = Route.NUTRIENT_GOAL) {
-                            NutrientGoalScreen(
-                                scaffoldState = scaffoldState,
-                                onNextClick = {
-                                    navController.navigate(Route.TRACKER_OVERVIEW)
-                                }
-                            )
-                        }
                         composable(route = Route.TRACKER_OVERVIEW) {
                             TrackerOverviewScreen(
                                 onNavigateToSearch = { mealName, day, month, year ->

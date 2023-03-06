@@ -7,6 +7,7 @@ class InitialWeightUseCase {
         return when (gender) {
             Gender.Female -> "60.0"
             Gender.Male -> "80.0"
+            else -> "80.0"
         }
     }
 }

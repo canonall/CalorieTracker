@@ -7,6 +7,7 @@ class InitialHeightUseCase {
         return when (gender) {
             Gender.Female -> "160"
             Gender.Male -> "180"
+            else -> "180"
         }
     }
 }
