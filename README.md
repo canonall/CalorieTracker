@@ -50,7 +50,14 @@ A calorie tracker app based on Philipp Lackner's <a href="https://pl-coding.com/
 
 The app is built using ***MVVM (Model-View-ViewModel)*** architecture with Presentation, Domain and Data layers.
 
-
 <p align="center">
 <img src="preview/TrackerArchitecture.png"/>
+</p>
+
+## Dependency Graph
+
+The graph below illustrates the relationships between different modules by indicating which modules include other modules.
+
+<p align="center">
+<img src="preview/tracker_modules.png"/>
 </p>
