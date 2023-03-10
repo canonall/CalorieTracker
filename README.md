@@ -43,5 +43,9 @@ A calorie tracker app based on Philipp Lackner's <a href="https://pl-coding.com/
 - Testing
   - [Truth](https://truth.dev) - Fluent assertions for Android
   - [Mockk](https://github.com/mockk/mockk) - Mocking library
-  - [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) A scriptable web server for testing HTTP clients
+  - [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) - A scriptable web server for testing HTTP clients
   - [Turbine](https://github.com/cashapp/turbine) - A small testing library for kotlinx.coroutines Flow
+
+## Architecture :straight_ruler:
+
+The app is built using ***MVVM (Model-View-ViewModel)*** architecture.
