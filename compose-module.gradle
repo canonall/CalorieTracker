@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.gitlab.arturbosch.detekt'
 
 android {
     compileSdk ProjectConfig.compileSdk
@@ -35,6 +36,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    detekt {
+        baseline file('detekt-baseline.xml')
     }
 }
 
