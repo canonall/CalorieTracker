@@ -4,6 +4,11 @@ A calorie tracker app based on Philipp Lackner's <a href="https://pl-coding.com/
 </p>
 </br>
 
+After completing the course I made the following changes/improvements:
+  - Replaced [Compose Navigation](https://developer.android.com/jetpack/compose/navigation) with [Compose Destinations](https://github.com/raamcosta/compose-destinations)
+  - Inceased test cases
+  - Added [Detekt](https://github.com/detekt/detekt) for static code analysis
+
 <p align="center">
   <a href="https://android-arsenal.com/api?level=24"><img alt="API" src="https://img.shields.io/badge/API-24%2B-darkgreen"/></a>
   <a href="https://github.com/canonall"><img alt="Profile" src="https://img.shields.io/badge/git-canonall-darkgreen"/></a> 
@@ -22,7 +27,7 @@ A calorie tracker app based on Philipp Lackner's <a href="https://pl-coding.com/
 ## Tech stack & Libraries :books:
 
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Best practices for testable, maintainable and robust high-quality apps.
-  - [Compose Navigation](https://developer.android.com/jetpack/compose/navigation) - Navigation between composables (used with single activity)
+  - [Compose Destinations](https://github.com/raamcosta/compose-destinations) - Easy navigation library for compose (used with single activity)
   - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - use viewmodel, a lifecycle aware component
   - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - Stores UI-related data and persists it through configuration changes. 
   - [UseCases](https://developer.android.com/topic/architecture/domain-layer)  
@@ -39,6 +44,7 @@ A calorie tracker app based on Philipp Lackner's <a href="https://pl-coding.com/
   - [OkHttp](https://square.github.io/okhttp/) - is the backbone library of Retrofit for sending and receive HTTP-based network requests.
   - [Moshi](https://github.com/square/moshi) - is for parsing JSON into Kotlin.
 - [Coil Compose](https://coil-kt.github.io/coil/compose/) - is a library for loading images on Android, utilizing Kotlin Coroutines for efficient and responsive performance.
+- [Detekt](https://github.com/detekt/detekt) - Static code analysis for Kotlin
 - [Timber](https://github.com/JakeWharton/timber) - Logging library for Android
 - Testing
   - [Truth](https://truth.dev) - Fluent assertions for Android
