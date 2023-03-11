@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>TooManyFunctions:DefaultPreferences.kt$DefaultPreferences : Preferences</ID>
+    <ID>TooManyFunctions:Preferences.kt$Preferences</ID>
+  </CurrentIssues>
+</SmellBaseline>

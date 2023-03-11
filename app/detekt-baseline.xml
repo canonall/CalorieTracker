@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>FunctionNaming:Theme.kt$@Composable fun CalorieTrackerTheme( darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -&gt; Unit )</ID>
+    <ID>NewLineAtEndOfFile:Shape.kt$com.canonal.calorietracker.ui.theme.Shape.kt</ID>
+    <ID>TooGenericExceptionThrown:CoreFeatureNavigator.kt$CoreFeatureNavigator$throw RuntimeException("Trying to use Onboarding navigator from a non onboarding screen")</ID>
+    <ID>WildcardImport:CoreFeatureNavigator.kt$import com.canonal.onboarding_presentation.destinations.*</ID>
+    <ID>WildcardImport:Theme.kt$import com.canonal.core_ui.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

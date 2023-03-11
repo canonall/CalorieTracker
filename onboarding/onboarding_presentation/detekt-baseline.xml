@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>FunctionNaming:ActionButton.kt$@Composable fun ActionButton( text: String, onClick: () -&gt; Unit, modifier: Modifier = Modifier, isEnabled: Boolean = true, textStyle: TextStyle = MaterialTheme.typography.button )</ID>
+    <ID>FunctionNaming:ActivityLevelScreen.kt$@OnboardingNavGraph @Destination @Composable fun ActivityLevelScreen( navigator: OnboardingNavigator, viewModel: ActivityLevelViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:AgeScreen.kt$@OnboardingNavGraph @Destination @Composable fun AgeScreen( scaffoldState: ScaffoldState, navigator: OnboardingNavigator, viewModel: AgeViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:GenderScreen.kt$@OnboardingNavGraph @Destination @Composable fun GenderScreen( navigator: OnboardingNavigator, viewModel: GenderViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:GoalTypeScreen.kt$@OnboardingNavGraph @Destination @Composable fun GoalTypeScreen( navigator: OnboardingNavigator, viewModel: GoalTypeViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:HeightScreen.kt$@OnboardingNavGraph @Destination @Composable fun HeightScreen( scaffoldState: ScaffoldState, navigator: OnboardingNavigator, viewModel: HeightViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:NutrientGoalScreen.kt$@OnboardingNavGraph @Destination @Composable fun NutrientGoalScreen( scaffoldState: ScaffoldState, navigator: OnboardingNavigator, viewModel: NutrientGoalViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:SelectableButton.kt$@Composable fun SelectableButton( text: String, isSelected: Boolean, color: Color, selectedTextColor: Color, onClick: () -&gt; Unit, modifier: Modifier = Modifier, textStyle: TextStyle = MaterialTheme.typography.button )</ID>
+    <ID>FunctionNaming:UnitTextField.kt$@OptIn(ExperimentalComposeUiApi::class) @Composable fun UnitTextField( value: String, onValueChange: (String) -&gt; Unit, unit: String, modifier: Modifier = Modifier, onDoneClick: (() -&gt; Unit)? = null, textStyle: TextStyle = TextStyle( color = MaterialTheme.colors.primaryVariant, fontSize = 70.sp ) )</ID>
+    <ID>FunctionNaming:WeightScreen.kt$@OnboardingNavGraph @Destination @Composable fun WeightScreen( scaffoldState: ScaffoldState, navigator: OnboardingNavigator, viewModel: WeightViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:WelcomeScreen.kt$@OnboardingNavGraph(start = true) @Destination @Composable fun WelcomeScreen( navigator: OnboardingNavigator )</ID>
+    <ID>MagicNumber:AgeViewModel.kt$AgeViewModel$3</ID>
+    <ID>MagicNumber:HeightViewModel.kt$HeightViewModel$3</ID>
+    <ID>NewLineAtEndOfFile:GenderScreen.kt$com.canonal.onboarding_presentation.gender.GenderScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:GoalTypeViewModel.kt$com.canonal.onboarding_presentation.goal_type.GoalTypeViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:WeightViewModel.kt$com.canonal.onboarding_presentation.weight.WeightViewModel.kt</ID>
+    <ID>WildcardImport:ActivityLevelScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:AgeScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:GenderScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:GoalTypeScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:HeightScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:NutrientGoalScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:UnitTextField.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:WeightScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:WelcomeScreen.kt$import androidx.compose.foundation.layout.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>InvalidPackageDeclaration:InvalidFoodResponse.kt$package com.plcoding.tracker_data.remote</ID>
+    <ID>InvalidPackageDeclaration:ValidFoodResponse.kt$package com.plcoding.tracker_data.remote</ID>
+    <ID>MagicNumber:TrackerRepositoryImpl.kt$TrackerRepositoryImpl$0.99f</ID>
+    <ID>MagicNumber:TrackerRepositoryImpl.kt$TrackerRepositoryImpl$1.01f</ID>
+    <ID>MagicNumber:TrackerRepositoryImpl.kt$TrackerRepositoryImpl$4f</ID>
+    <ID>MagicNumber:TrackerRepositoryImpl.kt$TrackerRepositoryImpl$9f</ID>
+    <ID>NewLineAtEndOfFile:InvalidFoodResponse.kt$com.plcoding.tracker_data.remote.InvalidFoodResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:OpenFoodApi.kt$com.canonal.tracker_data.remote.OpenFoodApi.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchDto.kt$com.canonal.tracker_data.remote.dto.SearchDto.kt</ID>
+    <ID>NewLineAtEndOfFile:TrackableFoodMapper.kt$com.canonal.tracker_data.mapper.TrackableFoodMapper.kt</ID>
+    <ID>NewLineAtEndOfFile:TrackerDao.kt$com.canonal.tracker_data.local.TrackerDao.kt</ID>
+    <ID>NewLineAtEndOfFile:TrackerDatabase.kt$com.canonal.tracker_data.local.TrackerDatabase.kt</ID>
+    <ID>NewLineAtEndOfFile:TrackerRepositoryImplTest.kt$com.canonal.tracker_data.repository.TrackerRepositoryImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ValidFoodResponse.kt$com.plcoding.tracker_data.remote.ValidFoodResponse.kt</ID>
+    <ID>PrintStackTrace:TrackerRepositoryImpl.kt$TrackerRepositoryImpl$e</ID>
+    <ID>TooGenericExceptionCaught:TrackerRepositoryImpl.kt$TrackerRepositoryImpl$e: Exception</ID>
+    <ID>WildcardImport:TrackerDao.kt$import androidx.room.*</ID>
+  </CurrentIssues>
+</SmellBaseline>
