@@ -11,7 +11,6 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.canonal.calorietracker.navigation.CoreFeatureNavigator
-import com.canonal.calorietracker.navigation.Route
 import com.canonal.calorietracker.repository.TrackerRepositoryFake
 import com.canonal.calorietracker.ui.theme.CalorieTrackerTheme
 import com.canonal.core.domain.model.ActivityLevel
@@ -189,7 +188,7 @@ class TrackerOverviewE2E {
             .onNodeWithContentDescription("Track")
             .performClick()
 
-        assertThat(navController.currentDestination?.route?.startsWith(Route.TRACKER_OVERVIEW)).isTrue()
+        assertThat(navController.currentDestination?.route?.startsWith(TrackerOverviewScreenDestination.route)).isTrue()
 
         composeRule
             .onAllNodesWithText(expectedCalories.toString())
