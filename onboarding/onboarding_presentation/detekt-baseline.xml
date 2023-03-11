@@ -15,15 +15,8 @@
     <ID>FunctionNaming:WelcomeScreen.kt$@OnboardingNavGraph(start = true) @Destination @Composable fun WelcomeScreen( navigator: OnboardingNavigator )</ID>
     <ID>MagicNumber:AgeViewModel.kt$AgeViewModel$3</ID>
     <ID>MagicNumber:HeightViewModel.kt$HeightViewModel$3</ID>
-    <ID>NewLineAtEndOfFile:ActionButton.kt$com.canonal.onboarding_presentation.components.ActionButton.kt</ID>
-    <ID>NewLineAtEndOfFile:ActivityLevelViewModel.kt$com.canonal.onboarding_presentation.activity_level.ActivityLevelViewModel.kt</ID>
-    <ID>NewLineAtEndOfFile:AgeViewModel.kt$com.canonal.onboarding_presentation.age.AgeViewModel.kt</ID>
     <ID>NewLineAtEndOfFile:GenderScreen.kt$com.canonal.onboarding_presentation.gender.GenderScreen.kt</ID>
-    <ID>NewLineAtEndOfFile:GenderViewModel.kt$com.canonal.onboarding_presentation.gender.GenderViewModel.kt</ID>
     <ID>NewLineAtEndOfFile:GoalTypeViewModel.kt$com.canonal.onboarding_presentation.goal_type.GoalTypeViewModel.kt</ID>
-    <ID>NewLineAtEndOfFile:NutrientGoalEvent.kt$com.canonal.onboarding_presentation.nutrient_goal.NutrientGoalEvent.kt</ID>
-    <ID>NewLineAtEndOfFile:NutrientGoalViewModel.kt$com.canonal.onboarding_presentation.nutrient_goal.NutrientGoalViewModel.kt</ID>
-    <ID>NewLineAtEndOfFile:SelectableButton.kt$com.canonal.onboarding_presentation.components.SelectableButton.kt</ID>
     <ID>NewLineAtEndOfFile:WeightViewModel.kt$com.canonal.onboarding_presentation.weight.WeightViewModel.kt</ID>
     <ID>WildcardImport:ActivityLevelScreen.kt$import androidx.compose.foundation.layout.*</ID>
     <ID>WildcardImport:AgeScreen.kt$import androidx.compose.foundation.layout.*</ID>
