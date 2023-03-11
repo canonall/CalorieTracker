@@ -18,18 +18,23 @@ import com.canonal.core.util.UiEvent
 import com.canonal.core_ui.spacing
 import com.canonal.onboarding_presentation.components.ActionButton
 import com.canonal.onboarding_presentation.components.UnitTextField
+import com.canonal.onboarding_presentation.navigation.OnboardingNavGraph
+import com.canonal.onboarding_presentation.navigation.OnboardingNavigator
+import com.ramcosta.composedestinations.annotation.Destination
 
+@OnboardingNavGraph
+@Destination
 @Composable
 fun AgeScreen(
     scaffoldState: ScaffoldState,
-    onNextClick: () -> Unit,
+    navigator: OnboardingNavigator,
     viewModel: AgeViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { uiEvent ->
             when (uiEvent) {
-                is UiEvent.Success -> onNextClick()
+                is UiEvent.Success -> navigator.navigateToNextScreen()
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = uiEvent.message.asString(context)

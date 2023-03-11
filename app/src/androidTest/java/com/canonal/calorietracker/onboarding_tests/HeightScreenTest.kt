@@ -15,6 +15,7 @@ import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.onboarding_domain.use_case.height.InitialHeightUseCase
 import com.canonal.onboarding_presentation.height.HeightScreen
 import com.canonal.onboarding_presentation.height.HeightViewModel
+import com.canonal.onboarding_presentation.navigation.OnboardingNavigator
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.mockk
@@ -54,7 +55,9 @@ class HeightScreenTest {
                 HeightScreen(
                     scaffoldState = scaffoldState,
                     viewModel = heightViewModel,
-                    onNextClick = {}
+                    navigator = object : OnboardingNavigator {
+                        override fun navigateToNextScreen() {}
+                    }
                 )
             }
         }

@@ -11,10 +11,15 @@ import androidx.compose.ui.text.style.TextAlign
 import com.canonal.core.R
 import com.canonal.core_ui.spacing
 import com.canonal.onboarding_presentation.components.ActionButton
+import com.canonal.onboarding_presentation.navigation.OnboardingNavGraph
+import com.canonal.onboarding_presentation.navigation.OnboardingNavigator
+import com.ramcosta.composedestinations.annotation.Destination
 
+@OnboardingNavGraph(start = true)
+@Destination
 @Composable
 fun WelcomeScreen(
-    onNextClick: () -> Unit
+    navigator: OnboardingNavigator
 ) {
     Column(
         modifier = Modifier
@@ -31,7 +36,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.spaceMedium))
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = onNextClick,
+            onClick = { navigator.navigateToNextScreen() },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }

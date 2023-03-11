@@ -12,10 +12,8 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.canonal.calorietracker.navigation.Route
+import com.canonal.calorietracker.navigation.CoreFeatureNavigator
 import com.canonal.calorietracker.ui.theme.CalorieTrackerTheme
 import com.canonal.core.R
 import com.canonal.core.domain.preferences.Preferences
@@ -26,10 +24,12 @@ import com.canonal.onboarding_domain.use_case.nutrient_goal.ValidateNutrientsUse
 import com.canonal.onboarding_domain.use_case.weight.FormatWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.InitialWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.WeightLimitUseCase
+import com.canonal.onboarding_presentation.OnboardingNavGraph
 import com.canonal.onboarding_presentation.activity_level.ActivityLevelScreen
 import com.canonal.onboarding_presentation.activity_level.ActivityLevelViewModel
 import com.canonal.onboarding_presentation.age.AgeScreen
 import com.canonal.onboarding_presentation.age.AgeViewModel
+import com.canonal.onboarding_presentation.destinations.*
 import com.canonal.onboarding_presentation.gender.GenderScreen
 import com.canonal.onboarding_presentation.gender.GenderViewModel
 import com.canonal.onboarding_presentation.goal_type.GoalTypeScreen
@@ -42,6 +42,10 @@ import com.canonal.onboarding_presentation.weight.WeightScreen
 import com.canonal.onboarding_presentation.weight.WeightViewModel
 import com.canonal.onboarding_presentation.welcome.WelcomeScreen
 import com.google.common.truth.Truth
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.manualcomposablecalls.composable
+import com.ramcosta.composedestinations.navigation.dependency
+import com.ramcosta.composedestinations.navigation.require
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.mockk
@@ -103,60 +107,67 @@ class OnBoardingE2E {
                     modifier = Modifier.fillMaxSize(),
                     scaffoldState = scaffoldState
                 ) { contentPadding ->
-                    NavHost(
+                    DestinationsNavHost(
+                        navGraph = OnboardingNavGraph,
                         navController = navController,
-                        startDestination = Route.WELCOME,
-                        modifier = Modifier.padding(contentPadding)
+                        modifier = Modifier.padding(contentPadding),
+                        dependenciesContainerBuilder = {
+                            dependency(scaffoldState)
+                            dependency(
+                                CoreFeatureNavigator(
+                                    currentDestination = destination,
+                                    navController = navController
+                                )
+                            )
+                        }
                     ) {
-
-                        composable(route = Route.WELCOME) {
-                            WelcomeScreen(onNextClick = {
-                                navController.navigate(Route.GENDER)
-                            })
+                        composable(WelcomeScreenDestination) {
+                            WelcomeScreen(navigator = buildDependencies().require())
                         }
-                        composable(route = Route.GENDER) {
-                            GenderScreen(onNextClick = {
-                                navController.navigate(Route.AGE)
-                            })
+                        composable(GenderScreenDestination) {
+                            GenderScreen(
+                                navigator = buildDependencies().require(),
+                                viewModel = genderViewModel
+                            )
                         }
-                        composable(route = Route.AGE) {
+                        composable(AgeScreenDestination) {
                             AgeScreen(
-                                scaffoldState = scaffoldState,
-                                onNextClick = {
-                                    navController.navigate(Route.HEIGHT)
-                                }
+                                navigator = buildDependencies().require(),
+                                scaffoldState = buildDependencies().require(),
+                                viewModel = ageViewModel
                             )
                         }
-                        composable(route = Route.HEIGHT) {
+                        composable(HeightScreenDestination) {
                             HeightScreen(
-                                scaffoldState = scaffoldState,
-                                onNextClick = {
-                                    navController.navigate(Route.WEIGHT)
-                                }
+                                scaffoldState = buildDependencies().require(),
+                                navigator = buildDependencies().require(),
+                                viewModel = heightViewModel
                             )
                         }
-                        composable(route = Route.WEIGHT) {
+                        composable(WeightScreenDestination) {
                             WeightScreen(
-                                scaffoldState = scaffoldState,
-                                onNextClick = {
-                                    navController.navigate(Route.ACTIVITY)
-                                }
+                                scaffoldState = buildDependencies().require(),
+                                navigator = buildDependencies().require(),
+                                viewModel = weightViewModel
                             )
                         }
-                        composable(route = Route.ACTIVITY) {
-                            ActivityLevelScreen(onNextClick = {
-                                navController.navigate(Route.GOAL)
-                            })
+                        composable(ActivityLevelScreenDestination) {
+                            ActivityLevelScreen(
+                                navigator = buildDependencies().require(),
+                                viewModel = activityLevelViewModel
+                            )
                         }
-                        composable(route = Route.GOAL) {
-                            GoalTypeScreen(onNextClick = {
-                                navController.navigate(Route.NUTRIENT_GOAL)
-                            })
+                        composable(GoalTypeScreenDestination) {
+                            GoalTypeScreen(
+                                navigator = buildDependencies().require(),
+                                viewModel = goalTypeViewModel
+                            )
                         }
-                        composable(route = Route.NUTRIENT_GOAL) {
+                        composable(NutrientGoalScreenDestination) {
                             NutrientGoalScreen(
-                                scaffoldState = scaffoldState,
-                                onNextClick = {}
+                                navigator = buildDependencies().require(),
+                                scaffoldState = buildDependencies().require(),
+                                viewModel = nutrientsGoalViewModel
                             )
                         }
                     }
@@ -178,7 +189,8 @@ class OnBoardingE2E {
 
         next()
 
-        Truth.assertThat(navController.currentDestination?.route?.equals(Route.GENDER)).isTrue()
+        Truth.assertThat(navController.currentDestination?.route?.equals(GenderScreenDestination.route))
+            .isTrue()
 
         composeRule
             .onNodeWithText("Female")
@@ -187,7 +199,8 @@ class OnBoardingE2E {
 
         next()
 
-        Truth.assertThat(navController.currentDestination?.route?.equals(Route.AGE)).isTrue()
+        Truth.assertThat(navController.currentDestination?.route?.equals(AgeScreenDestination.route))
+            .isTrue()
 
         composeRule
             .onNodeWithContentDescription(ageTextField)
@@ -195,7 +208,8 @@ class OnBoardingE2E {
 
         next()
 
-        Truth.assertThat(navController.currentDestination?.route?.equals(Route.HEIGHT)).isTrue()
+        Truth.assertThat(navController.currentDestination?.route?.equals(HeightScreenDestination.route))
+            .isTrue()
 
         composeRule
             .onNodeWithContentDescription(heightTextField)
@@ -203,7 +217,8 @@ class OnBoardingE2E {
 
         next()
 
-        Truth.assertThat(navController.currentDestination?.route?.equals(Route.WEIGHT)).isTrue()
+        Truth.assertThat(navController.currentDestination?.route?.equals(WeightScreenDestination.route))
+            .isTrue()
 
         composeRule
             .onNodeWithContentDescription(weightTextField)
@@ -211,7 +226,11 @@ class OnBoardingE2E {
 
         next()
 
-        Truth.assertThat(navController.currentDestination?.route?.equals(Route.ACTIVITY)).isTrue()
+        Truth.assertThat(
+            navController.currentDestination?.route?.equals(
+                ActivityLevelScreenDestination.route
+            )
+        ).isTrue()
 
         composeRule
             .onNodeWithText("Medium")
@@ -219,7 +238,8 @@ class OnBoardingE2E {
 
         next()
 
-        Truth.assertThat(navController.currentDestination?.route?.equals(Route.GOAL)).isTrue()
+        Truth.assertThat(navController.currentDestination?.route?.equals(GoalTypeScreenDestination.route))
+            .isTrue()
 
         composeRule
             .onNodeWithText("Keep")
@@ -227,7 +247,11 @@ class OnBoardingE2E {
 
         next()
 
-        Truth.assertThat(navController.currentDestination?.route?.equals(Route.NUTRIENT_GOAL))
+        Truth.assertThat(
+            navController.currentDestination?.route?.equals(
+                NutrientGoalScreenDestination.route
+            )
+        )
             .isTrue()
 
         composeRule

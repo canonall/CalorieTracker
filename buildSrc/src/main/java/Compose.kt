@@ -7,8 +7,9 @@ object Compose {
     const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
     const val compiler = "androidx.compose.compiler:compiler:$composeCompilerVersion"
 
-    private const val navigationVersion = "2.5.1"
-    const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
+    private const val composeDestinationsVersion = "1.7.36-beta"
+    const val composeDestinations = "io.github.raamcosta.compose-destinations:core:$composeDestinationsVersion"
+    const val composeDestinationsKsp = "io.github.raamcosta.compose-destinations:ksp:$composeDestinationsVersion"
 
     private const val hiltNavigationComposeVersion = "1.0.0-beta01"
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:$hiltNavigationComposeVersion"

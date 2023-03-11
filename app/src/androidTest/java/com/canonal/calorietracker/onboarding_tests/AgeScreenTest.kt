@@ -15,6 +15,7 @@ import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.onboarding_domain.use_case.age.AgeLimitUseCase
 import com.canonal.onboarding_presentation.age.AgeScreen
 import com.canonal.onboarding_presentation.age.AgeViewModel
+import com.canonal.onboarding_presentation.navigation.OnboardingNavigator
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.mockk
@@ -54,7 +55,9 @@ class AgeScreenTest {
                 AgeScreen(
                     scaffoldState = scaffoldState,
                     viewModel = ageViewModel,
-                    onNextClick = {}
+                    navigator = object : OnboardingNavigator {
+                        override fun navigateToNextScreen() {}
+                    }
                 )
             }
         }

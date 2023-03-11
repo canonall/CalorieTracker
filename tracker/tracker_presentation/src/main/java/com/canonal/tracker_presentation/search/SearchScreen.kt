@@ -23,9 +23,13 @@ import com.canonal.core_ui.spacing
 import com.canonal.tracker_domain.model.MealType
 import com.canonal.tracker_presentation.search.components.SearchTextField
 import com.canonal.tracker_presentation.search.components.TrackableFoodItem
+import com.canonal.tracker_presentation.tracker_overview.TrackerOverviewNavGraph
+import com.ramcosta.composedestinations.annotation.Destination
 import java.time.LocalDate
 
 @OptIn(ExperimentalComposeUiApi::class)
+@TrackerOverviewNavGraph
+@Destination
 @Composable
 fun SearchScreen(
     scaffoldState: ScaffoldState,
@@ -33,7 +37,7 @@ fun SearchScreen(
     dayOfMonth: Int,
     month: Int,
     year: Int,
-    onNavigateUp: () -> Unit,
+    navigator: SearchScreenNavigator,
     viewModel: SearchViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -44,7 +48,7 @@ fun SearchScreen(
     LaunchedEffect(key1 = keyboardController) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                UiEvent.NavigateUp -> onNavigateUp()
+                UiEvent.NavigateUp -> navigator.navigateUp()
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message.asString(context)

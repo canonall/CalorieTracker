@@ -14,6 +14,7 @@ import com.canonal.core.domain.preferences.Preferences
 import com.canonal.onboarding_domain.use_case.weight.FormatWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.InitialWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.WeightLimitUseCase
+import com.canonal.onboarding_presentation.navigation.OnboardingNavigator
 import com.canonal.onboarding_presentation.weight.WeightScreen
 import com.canonal.onboarding_presentation.weight.WeightViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -56,7 +57,9 @@ class WeightScreenTest {
                 WeightScreen(
                     scaffoldState = scaffoldState,
                     viewModel = weightViewModel,
-                    onNextClick = {}
+                    navigator = object : OnboardingNavigator {
+                        override fun navigateToNextScreen() {}
+                    }
                 )
             }
         }
