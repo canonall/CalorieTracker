@@ -11,22 +11,27 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.canonal.core.util.UiEvent
-import com.canonal.core_ui.spacing
 import com.canonal.core.R
 import com.canonal.core.domain.model.Gender
+import com.canonal.core.util.UiEvent
+import com.canonal.core_ui.spacing
 import com.canonal.onboarding_presentation.components.ActionButton
 import com.canonal.onboarding_presentation.components.SelectableButton
+import com.canonal.onboarding_presentation.navigation.OnboardingNavGraph
+import com.canonal.onboarding_presentation.navigation.OnboardingNavigator
+import com.ramcosta.composedestinations.annotation.Destination
 
+@OnboardingNavGraph
+@Destination
 @Composable
 fun GenderScreen(
-    onNextClick: () -> Unit,
+    navigator: OnboardingNavigator,
     viewModel: GenderViewModel = hiltViewModel()
 ) {
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { uiEvent ->
             when (uiEvent) {
-                is UiEvent.Success -> onNextClick()
+                is UiEvent.Success -> navigator.navigateToNextScreen()
                 else -> Unit
             }
         }

@@ -12,10 +12,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.canonal.core.R
 import com.canonal.core_ui.spacing
 import com.canonal.tracker_presentation.tracker_overview.components.*
+import com.ramcosta.composedestinations.annotation.Destination
 
+@TrackerOverviewNavGraph(start = true)
+@Destination
 @Composable
 fun TrackerOverviewScreen(
-    onNavigateToSearch: (String, Int, Int, Int) -> Unit,
+    navigator: TrackerOverviewScreenNavigator,
     viewModel: TrackerOverviewViewModel = hiltViewModel()
 ) {
     val state = viewModel.state
@@ -53,7 +56,7 @@ fun TrackerOverviewScreen(
                             .fillMaxWidth()
                             .padding(horizontal = MaterialTheme.spacing.spaceSmall)
                     ) {
-                        val foodsPerMeal = state.trackedFoodList.filter {trackedFood ->
+                        val foodsPerMeal = state.trackedFoodList.filter { trackedFood ->
                             trackedFood.mealType == meal.mealType
                         }
                         foodsPerMeal.forEach { trackedFood ->
@@ -75,7 +78,7 @@ fun TrackerOverviewScreen(
                                 meal.name.asString(context)
                             ),
                             onClick = {
-                                onNavigateToSearch(
+                                navigator.navigateToSearch(
                                     meal.name.asString(context),
                                     state.date.dayOfMonth,
                                     state.date.monthValue,
