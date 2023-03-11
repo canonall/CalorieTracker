@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>MagicNumber:AgeLimitUseCase.kt$AgeLimitUseCase$100</ID>
+    <ID>MagicNumber:AgeLimitUseCase.kt$AgeLimitUseCase$8</ID>
+    <ID>MagicNumber:FormatWeightUseCase.kt$FormatWeightUseCase$5</ID>
+    <ID>MagicNumber:ValidateNutrientsUseCase.kt$ValidateNutrientsUseCase$100</ID>
+    <ID>MagicNumber:ValidateNutrientsUseCase.kt$ValidateNutrientsUseCase$100f</ID>
+    <ID>MagicNumber:WeightLimitUseCase.kt$WeightLimitUseCase$650f</ID>
+    <ID>NewLineAtEndOfFile:AgeLimitUseCase.kt$com.canonal.onboarding_domain.use_case.age.AgeLimitUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:FormatWeightUseCase.kt$com.canonal.onboarding_domain.use_case.weight.FormatWeightUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:ValidateNutrientsUseCase.kt$com.canonal.onboarding_domain.use_case.nutrient_goal.ValidateNutrientsUseCase.kt</ID>
+    <ID>ReturnCount:ValidateNutrientsUseCase.kt$ValidateNutrientsUseCase$operator fun invoke( carbsRatioText: String, proteinRatioText: String, fatRatioText: String ): NutrientValidationResult</ID>
+  </CurrentIssues>
+</SmellBaseline>

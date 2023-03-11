@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$1.2f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$1.3f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$1.4f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$1.84f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$13.75f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$4.67</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$4f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$500</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$5f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$6.75f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$66.47f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$665.09f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$9.56f</ID>
+    <ID>MagicNumber:CalculateMealNutrientsUseCase.kt$CalculateMealNutrientsUseCase$9f</ID>
+    <ID>MagicNumber:TrackFoodUseCase.kt$TrackFoodUseCase$100f</ID>
+    <ID>NewLineAtEndOfFile:CalculateMealNutrientsUseCaseTest.kt$com.canonal.tracker_domain.use_case.CalculateMealNutrientsUseCaseTest.kt</ID>
+    <ID>NewLineAtEndOfFile:TrackedFood.kt$com.canonal.tracker_domain.model.TrackedFood.kt</ID>
+    <ID>WildcardImport:TrackerDomainModule.kt$import com.canonal.tracker_domain.use_case.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>FunctionNaming:AddButton.kt$@Composable fun AddButton( text: String, onClick: () -&gt; Unit, modifier: Modifier = Modifier, color: Color = MaterialTheme.colors.primary )</ID>
+    <ID>FunctionNaming:DaySelector.kt$@Composable fun DaySelector( date: LocalDate, onPreviousDayClick: () -&gt; Unit, onNextDayClick: () -&gt; Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:ExpandableMeal.kt$@Composable fun ExpandableMeal( meal: Meal, onToggleClick: () -&gt; Unit, content: @Composable () -&gt; Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:NutrientBarInfo.kt$@Composable fun NutrientBarInfo( value: Int, goal: Int, name: String, color: Color, modifier: Modifier = Modifier, strokeWidth: Dp = 8.dp )</ID>
+    <ID>FunctionNaming:NutrientInfo.kt$@Composable fun NutrientInfo( name: String, amount: Int, unit: String, modifier: Modifier = Modifier, amountTextSize: TextUnit = 20.sp, amountColor: Color = MaterialTheme.colors.onBackground, unitTextSize: TextUnit = 14.sp, unitColor: Color = MaterialTheme.colors.onBackground, nameTextStyle: TextStyle = MaterialTheme.typography.body1 )</ID>
+    <ID>FunctionNaming:NutrientsBar.kt$@Composable fun NutrientsBar( carbs: Int, protein: Int, fat: Int, calories: Int, calorieGoal: Int, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:NutrientsHeader.kt$@Composable fun NutrientsHeader( state: TrackerOverviewUiState, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:SearchScreen.kt$@OptIn(ExperimentalComposeUiApi::class) @TrackerOverviewNavGraph @Destination @Composable fun SearchScreen( scaffoldState: ScaffoldState, mealName: String, dayOfMonth: Int, month: Int, year: Int, navigator: SearchScreenNavigator, viewModel: SearchViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:SearchTextField.kt$@Composable fun SearchTextField( text: String, onValueChange: (String) -&gt; Unit, onSearch: () -&gt; Unit, onFocusChanged: (FocusState) -&gt; Unit, modifier: Modifier = Modifier, hint: String = stringResource(id = R.string.search), shouldShowHint: Boolean = false )</ID>
+    <ID>FunctionNaming:TrackableFoodItem.kt$@OptIn(ExperimentalCoilApi::class) @Composable fun TrackableFoodItem( trackableFoodItem: TrackableFoodItem, onClick: () -&gt; Unit, onAmountChange: (String) -&gt; Unit, onTrack: () -&gt; Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:TrackedFoodItem.kt$@OptIn(ExperimentalCoilApi::class) @Composable fun TrackedFoodItem( trackedFood: TrackedFood, onDeleteClick: () -&gt; Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:TrackerOverviewScreen.kt$@TrackerOverviewNavGraph(start = true) @Destination @Composable fun TrackerOverviewScreen( navigator: TrackerOverviewScreenNavigator, viewModel: TrackerOverviewViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:UnitDisplay.kt$@Composable fun UnitDisplay( amount: Int, unit: String, modifier: Modifier = Modifier, amountTextSize: TextUnit = 20.sp, amountColor: Color = MaterialTheme.colors.onBackground, unitTextSize: TextUnit = 14.sp, unitColor: Color = MaterialTheme.colors.onBackground )</ID>
+    <ID>MagicNumber:ExpandableMeal.kt$180f</ID>
+    <ID>MagicNumber:NutrientBarInfo.kt$360f</ID>
+    <ID>MagicNumber:NutrientsBar.kt$100f</ID>
+    <ID>MagicNumber:NutrientsBar.kt$4f</ID>
+    <ID>MagicNumber:NutrientsBar.kt$9f</ID>
+    <ID>MagicNumber:TrackableFoodItem.kt$0.5</ID>
+    <ID>MaxLineLength:SearchViewModel.kt$SearchViewModel$_uiEvent.send(UiEvent.ShowSnackbar(message = UiText.StringResource(R.string.error_something_went_wrong)))</ID>
+    <ID>NewLineAtEndOfFile:TrackedFoodItem.kt$com.canonal.tracker_presentation.tracker_overview.components.TrackedFoodItem.kt</ID>
+    <ID>WildcardImport:AddButton.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:ExpandableMeal.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:NutrientsHeader.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:SearchScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:TrackableFoodItem.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:TrackedFoodItem.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:TrackerOverviewScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:TrackerOverviewScreen.kt$import com.canonal.tracker_presentation.tracker_overview.components.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

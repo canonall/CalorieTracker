@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>MagicNumber:Color.kt$0xFF00790C</ID>
+    <ID>MagicNumber:Color.kt$0xFF00C713</ID>
+    <ID>MagicNumber:Color.kt$0xFF202020</ID>
+    <ID>MagicNumber:Color.kt$0xFF404040</ID>
+    <ID>MagicNumber:Color.kt$0xFF808080</ID>
+    <ID>MagicNumber:Color.kt$0xFFEEEEEE</ID>
+    <ID>MagicNumber:Color.kt$0xFFEEFF00</ID>
+    <ID>MagicNumber:Color.kt$0xFFF44336</ID>
+    <ID>MagicNumber:Color.kt$0xFFFFAA00</ID>
+    <ID>NewLineAtEndOfFile:Color.kt$com.canonal.core_ui.Color.kt</ID>
+    <ID>NewLineAtEndOfFile:Dimensions.kt$com.canonal.core_ui.Dimensions.kt</ID>
+  </CurrentIssues>
+</SmellBaseline>
