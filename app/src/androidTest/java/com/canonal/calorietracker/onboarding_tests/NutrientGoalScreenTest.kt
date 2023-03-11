@@ -13,6 +13,7 @@ import com.canonal.core.R
 import com.canonal.core.domain.preferences.Preferences
 import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.onboarding_domain.use_case.nutrient_goal.ValidateNutrientsUseCase
+import com.canonal.onboarding_presentation.navigation.OnboardingNavigator
 import com.canonal.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.canonal.onboarding_presentation.nutrient_goal.NutrientGoalViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -59,7 +60,9 @@ class NutrientGoalScreenTest {
                 NutrientGoalScreen(
                     scaffoldState = scaffoldState,
                     viewModel = nutrientGoalViewModel,
-                    onNextClick = {}
+                    navigator = object : OnboardingNavigator {
+                        override fun navigateToNextScreen() {}
+                    }
                 )
             }
         }
