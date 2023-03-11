@@ -2,7 +2,6 @@
 <p align="center">  
 A calorie tracker app based on Philipp Lackner's <a href="https://pl-coding.com/multi-module-course"> multi module course</a>. With this app you can search for any type of food you desire, whether it's breakfast, lunch, dinner or a snack. Once you have found the food you want, you can add it to your meal section, which helps you keep track of what you're eating throughout the day. You can find the detailed tech stack and architecture in the below sections.
 </p>
-</br>
 
 After completing the course I made the following changes/improvements:
   - Replaced [Compose Navigation](https://developer.android.com/jetpack/compose/navigation) with [Compose Destinations](https://github.com/raamcosta/compose-destinations)
