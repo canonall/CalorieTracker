@@ -1,6 +1,6 @@
 <h1 align="center">CalorieTracker</h1></br>
 <p align="center">  
-A calorie tracker app based on Philipp Lackner's <a href="https://pl-coding.com/multi-module-course"> multi module course</a>. With this app you can search for any type of food you desire, whether it's breakfast, lunch, dinner or a snack. Once you have found the food you want, you can add it to your meal section, which helps you keep track of what you're eating throughout the day. You can find the detailed tech stack and architecture in the below sections.
+A calorie tracker app based on Philipp Lackner's <a href="https://pl-coding.com/multi-module-course"> multi module course</a>. With this app you can search for any type of food you desire, whether it's breakfast, lunch, dinner or a snack. Once you have found the food you want, you can add it to your meal section, which helps you keep track of what you're eating throughout the day. You can find the detailed tech stack and architecture in the below sections. The purpose is to learn how to structure different modules with Clean Architecture.
 </p>
 
 After completing the course I made the following changes/improvements:
