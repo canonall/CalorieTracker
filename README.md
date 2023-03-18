@@ -17,8 +17,8 @@ After completing the course I made the following changes/improvements:
 ## Screeshots :camera_flash:
 
 <p align="center">
+<img src="preview/scale.png" width="20%"/>
 <img src="preview/calorieTracker5.png" width="20%"/>
-<img src="preview/calorieTracker2.png" width="20%"/>
 <img src="preview/calorieTracker1.png" width="20%"/>
 <img src="preview/calorieTracker3.png" width="20%"/>
 </p>
