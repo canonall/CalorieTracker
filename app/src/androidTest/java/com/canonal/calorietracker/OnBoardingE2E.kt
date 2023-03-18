@@ -21,9 +21,7 @@ import com.canonal.core.domain.use_case.FilterOutDigitsUseCase
 import com.canonal.onboarding_domain.use_case.age.AgeLimitUseCase
 import com.canonal.onboarding_domain.use_case.height.InitialHeightUseCase
 import com.canonal.onboarding_domain.use_case.nutrient_goal.ValidateNutrientsUseCase
-import com.canonal.onboarding_domain.use_case.weight.FormatWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.InitialWeightUseCase
-import com.canonal.onboarding_domain.use_case.weight.WeightLimitUseCase
 import com.canonal.onboarding_presentation.OnboardingNavGraph
 import com.canonal.onboarding_presentation.activity_level.ActivityLevelScreen
 import com.canonal.onboarding_presentation.activity_level.ActivityLevelViewModel
@@ -88,9 +86,7 @@ class OnBoardingE2E {
         )
         weightViewModel = WeightViewModel(
             preferences = preferences,
-            initialWeightUseCase = InitialWeightUseCase(),
-            formatWeightUseCase = FormatWeightUseCase(),
-            weightLimitUseCase = WeightLimitUseCase()
+            initialWeightUseCase = InitialWeightUseCase()
         )
         activityLevelViewModel = ActivityLevelViewModel(preferences = preferences)
         goalTypeViewModel = GoalTypeViewModel(preferences = preferences)
@@ -146,7 +142,6 @@ class OnBoardingE2E {
                         }
                         composable(WeightScreenDestination) {
                             WeightScreen(
-                                scaffoldState = buildDependencies().require(),
                                 navigator = buildDependencies().require(),
                                 viewModel = weightViewModel
                             )
@@ -181,7 +176,7 @@ class OnBoardingE2E {
 
         val ageTextField = composeRule.activity.getString(R.string.age_text_field)
         val heightTextField = composeRule.activity.getString(R.string.height_text_field)
-        val weightTextField = composeRule.activity.getString(R.string.weight_text_field)
+        val weightText = composeRule.activity.getString(R.string.weight_text)
         val carbsRatioTextField = composeRule.activity.getString(R.string.carbs_ratio_text_field)
         val proteinRatioTextField =
             composeRule.activity.getString(R.string.protein_ratio_text_field)
@@ -221,7 +216,7 @@ class OnBoardingE2E {
             .isTrue()
 
         composeRule
-            .onNodeWithContentDescription(weightTextField)
+            .onNodeWithContentDescription(weightText)
             .assertIsDisplayed()
 
         next()
