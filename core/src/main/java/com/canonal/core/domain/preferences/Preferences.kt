@@ -8,7 +8,7 @@ import com.canonal.core.domain.model.UserInfo
 interface Preferences {
     fun saveGender(gender: Gender)
     fun saveAge(age: Int)
-    fun saveWeight(weight: Float)
+    fun saveWeight(weight: Int)
     fun saveHeight(height: Int)
     fun saveActivityLevel(activityLevel: ActivityLevel)
     fun saveGoalType(goalType: GoalType)

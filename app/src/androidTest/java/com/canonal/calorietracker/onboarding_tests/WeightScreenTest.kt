@@ -11,9 +11,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import com.canonal.calorietracker.MainActivity
 import com.canonal.core.R
 import com.canonal.core.domain.preferences.Preferences
-import com.canonal.onboarding_domain.use_case.weight.FormatWeightUseCase
 import com.canonal.onboarding_domain.use_case.weight.InitialWeightUseCase
-import com.canonal.onboarding_domain.use_case.weight.WeightLimitUseCase
 import com.canonal.onboarding_presentation.navigation.OnboardingNavigator
 import com.canonal.onboarding_presentation.weight.WeightScreen
 import com.canonal.onboarding_presentation.weight.WeightViewModel
@@ -35,7 +33,10 @@ class WeightScreenTest {
 
     private lateinit var preferences: Preferences
     private lateinit var weightViewModel: WeightViewModel
-    private lateinit var weightTextField: String
+    private lateinit var weightText: String
+    private val initialWeight = "80"
+    private val minWeight = "20"
+    private val maxWeight = "250"
 
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     @Before
@@ -43,11 +44,9 @@ class WeightScreenTest {
         preferences = mockk(relaxed = true)
         weightViewModel = WeightViewModel(
             preferences = preferences,
-            initialWeightUseCase = InitialWeightUseCase(),
-            formatWeightUseCase = FormatWeightUseCase(),
-            weightLimitUseCase = WeightLimitUseCase()
+            initialWeightUseCase = InitialWeightUseCase()
         )
-        weightTextField = composeRule.activity.getString(R.string.weight_text_field)
+        weightText = composeRule.activity.getString(R.string.weight_text)
         composeRule.activity.setContent {
             val scaffoldState = rememberScaffoldState()
             Scaffold(
@@ -55,7 +54,6 @@ class WeightScreenTest {
                 scaffoldState = scaffoldState
             ) {
                 WeightScreen(
-                    scaffoldState = scaffoldState,
                     viewModel = weightViewModel,
                     navigator = object : OnboardingNavigator {
                         override fun navigateToNextScreen() {}
@@ -66,47 +64,42 @@ class WeightScreenTest {
     }
 
     @Test
-    fun isEmptyWeightErrorDisplayed() {
-        val emptyError = composeRule.activity.getString(R.string.error_weight_cant_be_empty)
-
+    fun isScaleUpdated() {
+        composeRule.onNodeWithText(initialWeight).assertIsDisplayed()
         composeRule
-            .onNodeWithContentDescription(weightTextField)
-            .onChildren()
-            .onFirst()
-            .performTextClearance()
-
-        composeRule
-            .onNodeWithText("Next")
-            .performClick()
-
-        composeRule
-            .onNodeWithText(emptyError)
-            .assertIsDisplayed()
+            .onNodeWithContentDescription("scale")
+            .performTouchInput {
+                // updates scale from 80 to 45
+                swipeRight()
+            }
+        composeRule.onNodeWithText("45").assertIsDisplayed()
     }
 
     @Test
-    fun isInvalidWeightErrorDisplayed() {
-        val emptyError = composeRule.activity.getString(R.string.error_weight_limit)
-        val invalidWeight = "700"
-
+    fun isScaleMinLimitApplied() {
+        composeRule.onNodeWithText(initialWeight).assertIsDisplayed()
         composeRule
-            .onNodeWithContentDescription(weightTextField)
-            .onChildren()
-            .onFirst()
-            .performTextClearance()
+            .onNodeWithContentDescription("scale")
+            .performTouchInput {
+                // swipe until reaching minValue
+                swipeRight(startX = 0f, endX = 3000f)
+            }
+        composeRule.onNodeWithText(minWeight).assertIsDisplayed()
+    }
 
+    @Test
+    fun isScaleMaxLimitApplied() {
+        composeRule.onNodeWithText(initialWeight).assertIsDisplayed()
         composeRule
-            .onNodeWithContentDescription(weightTextField)
-            .onChildren()
-            .onFirst()
-            .performTextInput(invalidWeight)
-
-        composeRule
-            .onNodeWithText("Next")
-            .performClick()
-
-        composeRule
-            .onNodeWithText(emptyError)
-            .assertIsDisplayed()
+            .onNodeWithContentDescription("scale")
+            .performTouchInput {
+                // swipe until reaching maxValue
+                swipeLeft(startX = 0f, endX = -3000f)
+                swipeLeft(startX = 0f, endX = -3000f)
+                swipeLeft(startX = 0f, endX = -3000f)
+                swipeLeft(startX = 0f, endX = -3000f)
+                swipeLeft(startX = 0f, endX = -100f)
+            }
+        composeRule.onNodeWithText(maxWeight).assertIsDisplayed()
     }
 }
