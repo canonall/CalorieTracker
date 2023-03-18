@@ -65,7 +65,7 @@ class TrackerOverviewE2E {
         every { preferences.loadUserInfo() } returns UserInfo(
             gender = Gender.Male,
             age = 20,
-            weight = 80f,
+            weight = 80,
             height = 180,
             activityLevel = ActivityLevel.Medium,
             goalType = GoalType.KeepWeight,
